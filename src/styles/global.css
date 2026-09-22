@@ -19,19 +19,20 @@
   --gradient-navy: linear-gradient(165deg, #1a3058 0%, #102040 48%, #06101c 100%);
   --gradient-navy-glow: radial-gradient(ellipse 70% 55% at 15% 0%, rgba(168, 36, 52, 0.2), transparent 58%),
     linear-gradient(165deg, #1a3058 0%, #102040 48%, #06101c 100%);
-  --ras-page-bg: #ffffff;
+  --ras-page-bg: #fafaf9;
   --gradient-premium-light: var(--ras-page-bg);
-  --gradient-premium-cream: radial-gradient(ellipse 75% 50% at 50% 0%, rgba(142, 26, 40, 0.05), transparent 58%),
-    linear-gradient(180deg, #f3f4f7 0%, #e7e7e2 100%);
+  --gradient-premium-cream: #f5f4f2;
   --gradient-title: linear-gradient(135deg, #a82434 0%, #8e1a28 42%, #6b1420 100%);
-  --shadow-premium: 0 18px 48px rgba(16, 32, 64, 0.12), 0 4px 14px rgba(142, 26, 40, 0.07);
-  --shadow-premium-hover: 0 24px 56px rgba(16, 32, 64, 0.16), 0 8px 20px rgba(142, 26, 40, 0.1);
-  --cream: #eef1f6;
+  --ras-border: rgba(28, 31, 36, 0.08);
+  --ras-border-strong: rgba(28, 31, 36, 0.12);
+  --shadow-premium: 0 1px 2px rgba(16, 32, 64, 0.04), 0 10px 32px rgba(16, 32, 64, 0.06);
+  --shadow-premium-hover: 0 2px 4px rgba(16, 32, 64, 0.05), 0 16px 40px rgba(16, 32, 64, 0.09);
+  --cream: #f3f2f0;
   --text: #f2f4f8;
-  --muted: #c2cbdc;
-  --ink: #16191f;
-  --gray: #5a6472;
-  --line: #dce1ea;
+  --muted: #9aa3ad;
+  --ink: #1c1f24;
+  --gray: #6e7681;
+  --line: #ebecef;
   --font-display: 'Fira Sans Extra Condensed', 'Fira Sans Condensed', system-ui, sans-serif;
   --font-body: 'Fira Sans Extra Condensed', 'Fira Sans Condensed', system-ui, sans-serif;
   --font-section-display: 'Unbounded', system-ui, sans-serif;
@@ -470,8 +471,8 @@ button {
     transparent 0%,
     rgba(6, 16, 28, 0.12) 32%,
     rgba(6, 16, 28, 0.38) 62%,
-    rgba(255, 255, 255, 0.72) 88%,
-    #ffffff 100%
+    rgba(250, 250, 249, 0.72) 88%,
+    #fafaf9 100%
   );
 }
 
@@ -863,7 +864,7 @@ button {
 
 .programs-desc {
   color: var(--gray);
-  font-size: 18px;
+  font-size: 17px;
   font-weight: 400;
   line-height: 1.75;
   letter-spacing: -0.005em;
@@ -881,7 +882,7 @@ button {
   position: relative;
   aspect-ratio: 590 / 805;
   min-height: 520px;
-  border-radius: 22px;
+  border-radius: 18px;
   overflow: hidden;
   color: #fff;
   display: flex;
@@ -890,8 +891,8 @@ button {
   padding: 28px 24px 26px;
   isolation: isolate;
   background-color: #1a2030;
-  box-shadow: 0 16px 44px rgba(16, 32, 64, 0.12);
-  transition: transform 0.4s ease;
+  box-shadow: var(--shadow-premium);
+  transition: transform 0.35s ease, box-shadow 0.35s ease;
   animation: card-rise 0.7s ease both;
 }
 
@@ -908,7 +909,7 @@ button {
 }
 
 .program-card:hover {
-  transform: translateY(-6px);
+  transform: translateY(-3px);
   box-shadow: var(--shadow-premium-hover);
 }
 
@@ -926,9 +927,7 @@ button {
   position: absolute;
   inset: 0;
   z-index: -1;
-  background:
-    linear-gradient(180deg, rgba(8, 10, 18, 0.06) 0%, rgba(8, 10, 18, 0.16) 38%, rgba(6, 8, 14, 0.78) 100%),
-    linear-gradient(135deg, rgba(142, 26, 40, 0.12) 0%, transparent 45%, rgba(16, 32, 64, 0.2) 100%);
+  background: linear-gradient(180deg, rgba(8, 10, 18, 0.04) 0%, rgba(6, 8, 14, 0.72) 100%);
   pointer-events: none;
 }
 
@@ -938,32 +937,24 @@ button {
   top: 0;
   left: 0;
   right: 0;
-  height: 6px;
+  height: 3px;
   z-index: 1;
 }
 
 .program-card.kids {
-  box-shadow:
-    0 16px 44px rgba(168, 132, 46, 0.18),
-    0 4px 14px rgba(16, 32, 64, 0.08),
-    inset 0 0 0 1px rgba(208, 176, 106, 0.22);
+  box-shadow: var(--shadow-premium);
 }
 
 .program-card.kids:hover {
-  box-shadow:
-    0 28px 60px rgba(208, 176, 106, 0.28),
-    0 8px 22px rgba(16, 32, 64, 0.1),
-    inset 0 0 0 1px rgba(240, 220, 176, 0.35);
+  box-shadow: var(--shadow-premium-hover);
 }
 
 .program-card.kids .program-card-overlay {
-  background:
-    linear-gradient(180deg, rgba(32, 24, 8, 0.1) 0%, rgba(28, 20, 6, 0.22) 38%, rgba(20, 14, 4, 0.86) 100%),
-    linear-gradient(135deg, rgba(208, 176, 106, 0.34) 0%, transparent 46%, rgba(168, 132, 46, 0.14) 100%);
+  background: linear-gradient(180deg, rgba(24, 18, 6, 0.06) 0%, rgba(16, 12, 4, 0.8) 100%);
 }
 
 .program-card.kids::before {
-  background: linear-gradient(90deg, #7a6020, var(--brand-gold-rich), var(--brand-gold-soft), var(--brand-gold-rich), #7a6020);
+  background: var(--brand-gold);
 }
 
 .program-card.adults::before {
@@ -999,16 +990,14 @@ button {
 
 .program-card.kids .program-tag {
   border-color: var(--brand-gold);
-  background: var(--gradient-gold-shine);
-  -webkit-background-clip: text;
-  background-clip: text;
-  -webkit-text-fill-color: transparent;
-  color: transparent;
-  filter: drop-shadow(0 2px 12px rgba(208, 176, 106, 0.35));
+  color: var(--brand-gold-soft);
+  background: none;
+  -webkit-text-fill-color: currentColor;
+  filter: none;
 }
 
 .program-card.kids .program-sub {
-  color: rgba(240, 220, 176, 0.92);
+  color: rgba(232, 212, 168, 0.88);
 }
 
 .program-card.adults .program-tag {
@@ -1044,14 +1033,14 @@ button {
 }
 
 .program-arrow {
-  width: 64px;
-  height: 64px;
+  width: 56px;
+  height: 56px;
   border-radius: 50%;
   display: flex;
   align-items: center;
   justify-content: center;
   flex-shrink: 0;
-  background: rgba(255, 255, 255, 0.08);
+  background: rgba(255, 255, 255, 0.06);
   backdrop-filter: blur(4px);
   transition:
     background 0.25s,
@@ -1065,24 +1054,24 @@ button {
 }
 
 .program-card.kids .program-arrow {
-  border: 2.5px solid var(--brand-gold);
+  border: 1.5px solid rgba(208, 176, 106, 0.55);
   color: var(--brand-gold-soft);
-  background: linear-gradient(145deg, rgba(208, 176, 106, 0.22), rgba(255, 255, 255, 0.06));
+  background: rgba(255, 255, 255, 0.06);
 }
 
 .program-card.kids:hover .program-arrow {
-  background: var(--gradient-gold);
+  background: var(--brand-gold);
   color: #3d2e0a;
-  border-color: var(--brand-gold-soft);
+  border-color: var(--brand-gold);
 }
 
 .program-card.adults .program-arrow {
-  border: 2.5px solid var(--navy-mid);
+  border: 1.5px solid rgba(255, 255, 255, 0.35);
   color: #fff;
 }
 
 .program-card.corporate .program-arrow {
-  border: 2.5px solid var(--burgundy);
+  border: 1.5px solid rgba(255, 255, 255, 0.35);
   color: #fff;
 }
 

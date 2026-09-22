@@ -1,12 +1,12 @@
 /* Royal Academy — unified design system (sections after hero/programs) */
 
 :root {
-  --ras-radius-sm: 12px;
-  --ras-radius-md: 20px;
-  --ras-radius-lg: 24px;
+  --ras-radius-sm: 10px;
+  --ras-radius-md: 16px;
+  --ras-radius-lg: 20px;
   --ras-radius-pill: 999px;
 
-  --ras-section-y: 112px;
+  --ras-section-y: 104px;
   --ras-gap: 24px;
   --ras-gap-lg: 56px;
 
@@ -20,13 +20,13 @@
   --ras-bg-soft: #e7e7e2;
   --ras-bg-burgundy: linear-gradient(165deg, var(--burgundy-2) 0%, var(--burgundy) 40%, var(--burgundy-deep) 100%);
 
-  --ras-shadow-card: 0 14px 40px rgba(16, 32, 64, 0.1);
-  --ras-shadow-hover: 0 20px 48px rgba(16, 32, 64, 0.16);
-  --ras-shadow-soft: 0 8px 32px rgba(6, 16, 28, 0.12);
+  --ras-shadow-card: var(--shadow-premium);
+  --ras-shadow-hover: var(--shadow-premium-hover);
+  --ras-shadow-soft: 0 1px 2px rgba(16, 32, 64, 0.04), 0 8px 24px rgba(16, 32, 64, 0.05);
 
-  --ras-card-soft-bg: #f5f5f3;
-  --ras-glass-bg: rgba(255, 255, 255, 0.1);
-  --ras-glass-border: rgba(255, 255, 255, 0.22);
+  --ras-card-soft-bg: #ffffff;
+  --ras-glass-bg: rgba(255, 255, 255, 0.08);
+  --ras-glass-border: rgba(255, 255, 255, 0.18);
 }
 
 /* Section backgrounds */
@@ -49,7 +49,7 @@
   content: '';
   position: absolute;
   inset: 0;
-  opacity: 0.32;
+  opacity: 0.14;
   background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.5'/%3E%3C/svg%3E");
   pointer-events: none;
 }
@@ -62,7 +62,7 @@
 
 /* Unified titles */
 .ras-title {
-  margin-bottom: 56px;
+  margin-bottom: 48px;
   text-wrap: balance;
 }
 
@@ -84,11 +84,7 @@
   line-height: 1.1;
   letter-spacing: -0.02em;
   text-transform: none;
-  background: var(--gradient-title);
-  -webkit-background-clip: text;
-  background-clip: text;
-  -webkit-text-fill-color: transparent;
-  color: transparent;
+  color: var(--burgundy);
 }
 
 .ras-title__accent {
@@ -132,16 +128,15 @@
 /* Card system */
 .ras-card-soft {
   border-radius: var(--ras-radius-lg);
-  background:
-    radial-gradient(ellipse 80% 60% at 100% 0%, rgba(208, 176, 106, 0.07), transparent 55%),
-    linear-gradient(165deg, #fcfcfb 0%, #f5f5f3 52%, #f8f7f5 100%);
-  border: 1px solid rgba(255, 255, 255, 0.85);
+  background: #ffffff;
+  border: 1px solid var(--ras-border);
   box-shadow: var(--shadow-premium);
-  transition: transform 0.25s ease, box-shadow 0.25s ease;
+  transition: transform 0.25s ease, box-shadow 0.25s ease, border-color 0.25s ease;
 }
 
 .ras-card-soft:hover {
-  transform: translateY(-4px);
+  transform: translateY(-2px);
+  border-color: var(--ras-border-strong);
   box-shadow: var(--shadow-premium-hover);
 }
 
@@ -156,21 +151,22 @@
 }
 
 .ras-card-glass:hover {
-  background: rgba(255, 255, 255, 0.14);
-  border-color: rgba(255, 255, 255, 0.35);
-  transform: translateY(-3px);
+  background: rgba(255, 255, 255, 0.12);
+  border-color: rgba(255, 255, 255, 0.28);
+  transform: translateY(-2px);
 }
 
 .ras-card-surface {
   border-radius: var(--ras-radius-md);
-  background: linear-gradient(180deg, #ffffff 0%, #f9fafc 100%);
-  border: 1px solid rgba(220, 225, 234, 0.9);
+  background: #ffffff;
+  border: 1px solid var(--ras-border);
   box-shadow: var(--shadow-premium);
-  transition: transform 0.25s ease, box-shadow 0.25s ease;
+  transition: transform 0.25s ease, box-shadow 0.25s ease, border-color 0.25s ease;
 }
 
 .ras-card-surface:hover {
-  transform: translateY(-4px);
+  transform: translateY(-2px);
+  border-color: var(--ras-border-strong);
   box-shadow: var(--shadow-premium-hover);
 }
 
@@ -241,10 +237,10 @@
 
 .ras-card-title-sans {
   font-family: var(--font-section-display);
-  font-weight: 700;
-  font-size: clamp(26px, 2.8vw, 36px);
+  font-weight: 600;
+  font-size: clamp(24px, 2.6vw, 32px);
   letter-spacing: -0.01em;
-  color: #333;
+  color: var(--ink);
   text-transform: lowercase;
 }
 
@@ -252,8 +248,8 @@
   font-family: Georgia, 'Times New Roman', serif;
   font-style: italic;
   font-weight: 400;
-  font-size: clamp(30px, 3.2vw, 42px);
-  color: #333;
+  font-size: clamp(28px, 3vw, 38px);
+  color: var(--burgundy);
   text-transform: lowercase;
 }
 
@@ -270,21 +266,22 @@
   align-items: center;
   justify-content: center;
   margin-top: auto;
-  padding: 13px 26px;
+  padding: 12px 24px;
   border-radius: var(--ras-radius-pill);
-  background: rgba(255, 255, 255, 0.95);
+  background: #ffffff;
+  border: 1px solid var(--ras-border);
   font-family: var(--font-section-body);
   font-size: var(--ras-caption);
-  font-weight: 700;
-  letter-spacing: 0.06em;
+  font-weight: 600;
+  letter-spacing: 0.05em;
   text-transform: uppercase;
-  color: var(--navy-2);
-  transition: background 0.2s, transform 0.2s;
+  color: var(--ink);
+  transition: background 0.2s, border-color 0.2s, color 0.2s;
 }
 
 .ras-pill-btn:hover {
-  background: #fff;
-  transform: scale(1.04);
+  background: var(--ras-page-bg);
+  border-color: var(--ras-border-strong);
 }
 
 .ras-pill-btn--ghost {
@@ -296,7 +293,8 @@
 /* Emoji decoration */
 .ras-emoji-deco {
   line-height: 1;
-  filter: drop-shadow(0 8px 16px rgba(0, 0, 0, 0.12));
+  filter: none;
+  opacity: 0.92;
   user-select: none;
   pointer-events: none;
 }
